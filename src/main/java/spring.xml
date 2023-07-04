@@ -7,5 +7,17 @@
 	<!-- bean definitions here -->
 
 	<bean class="com.dao.UserDao" id="userDao" />
+	<bean class="com.dao.AdminDao" id="adminDao">
+		<property name="userName" value="ram"></property>
+	</bean>
+
+
+	<bean class="com.controller.UserController" id="userController">
+		<constructor-arg ref="userDao"></constructor-arg>
+		<constructor-arg ref="stateDao"></constructor-arg>
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+
+	<bean class="com.dao.StateDao" id="stateDao"></bean>
 
 </beans>

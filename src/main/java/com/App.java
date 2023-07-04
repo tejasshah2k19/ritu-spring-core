@@ -3,6 +3,7 @@ package com;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import com.controller.UserController;
 import com.dao.UserDao;
 
 /**
@@ -33,5 +34,14 @@ public class App {
 		System.out.println(userDao1);
 		System.out.println(userDao2);
 
+		UserController userController = context.getBean("userController", UserController.class);
+
+		System.out.println(userController);
+		System.out.println(userController.userDao);
+		System.out.println(userController.getAdminDao());
+		System.out.println(userController.getAdminDao().getUserName());
+		
+		System.out.println(userController.stateDao);
+		
 	}
 }
